@@ -6,7 +6,7 @@ const router = require("./routes/globalRoutes.js")
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({
-    origin: ["https://animal-topia.netlify.app/"],
+    origin: "https://animal-topia.netlify.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"]
 }))
