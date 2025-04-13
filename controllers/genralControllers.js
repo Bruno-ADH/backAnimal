@@ -9,7 +9,7 @@ const getAnimals = (req, res) => {
     try {
         fs.readFile(animalsJsonFilePath, "utf-8", (err, data) => {
             if (err) {
-                res.status(err.status || 500).json({
+               return res.status(err.status || 500).json({
                     success: false,
                     message: "Erreur lors de la récupération des données",
                     error: err.message
@@ -17,7 +17,7 @@ const getAnimals = (req, res) => {
             }
 
             if (data) {
-                res.status(201).json({
+               return res.status(201).json({
                     success: true,
                     message: "Données récupérées",
                     data: JSON.parse(data)
@@ -25,7 +25,7 @@ const getAnimals = (req, res) => {
             }
         })
     } catch (error) {
-        res.status(error.status || 400).json({
+       return res.status(error.status || 400).json({
             success: false,
             message: "Une erreur s'est produite",
             error: error.message
@@ -35,11 +35,12 @@ const getAnimals = (req, res) => {
 
 const addAnimals = (req, res) => {
     const {name, url} = req?.body
+    console.log('req?.body :>> ', req?.body);
    try {
     if (name && url) {
         fs.readFile(animalsJsonFilePath, 'utf8', (err, data) => {
             if(err) {
-                res.status(err.status || 500).send({
+               return res.status(err.status || 500).send({
                     success: true,
                     message: "Une erreur s'est produite lors de la lecture du fichier",
                     error: err.message
@@ -55,13 +56,13 @@ const addAnimals = (req, res) => {
             
             fs.writeFile(animalsJsonFilePath, JSON.stringify(animalsArray, null, 2), (err) => {
                 if (err) {
-                    res.status(err.status || 500).json({
+                   return res.status(err.status || 500).json({
                         success: false,
                         message: "Une erreur s'est produite lors de l'enregistrement des données",
                         error: err.message
                     })
                 }
-                res.status(201).json({
+               return res.status(201).json({
                     success: true,
                     message: "Données enregistrées",
                     data: {name, url}
@@ -69,13 +70,13 @@ const addAnimals = (req, res) => {
             })
         })
     } else {
-        res.status(400).send({
+       return res.status(400).send({
             success: false,
             message: "Veuillez renseigner tous les champs",
         })
     }
    } catch (error) {
-    res.status(error.status || 500).json({
+   return res.status(error.status || 500).json({
         success: false,
         message: error.message
     });
