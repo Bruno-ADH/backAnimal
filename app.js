@@ -15,8 +15,9 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use((req, res, next) => {
+    const {url, method} = req
     const date = new Date();
-    console.log('Une requete est arrivée sur le serveur ', date.toLocaleString("fr"));
+    console.log(`[${method}] [${url}] [${date.toLocaleString("fr")}]`);
     next()
 })
 
@@ -24,6 +25,15 @@ app.use("/animals", router)
 
 app.get("/", (req, res)=>{
     res.send("Bienvenue sur le serveur");
+})
+
+app.use((err, req, res) => {
+    console.log('err.stack :>> ', err.stack);
+    res.status(err.status || 500).json({
+        error: err,
+        message: err.message,
+        name: "Une erreur s'est produite"
+    });
 })
 
 app.listen(PORT, () => {
