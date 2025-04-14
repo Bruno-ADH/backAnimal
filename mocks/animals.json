@@ -10,5 +10,17 @@
   {
     "name": "Elephant",
     "url": "https://img.freepik.com/free-psd/majestic-elephant-isolated_23-2151857816.jpg"
+  },
+  {
+    "name": "tortue",
+    "url": "https://pixabay.com/get/gef711627e20738debeadefb6f61ef2d4a9d736b3d8c1ac142b4b9d45961325bd125fc333ac41bb340886272270f6593a11b14e392072019e413238268956ceda_1280.png"
+  },
+  {
+    "name": "lion",
+    "url": "https://pixabay.com/get/g6edef0362d3e2934cc5b3d159c0c6ddc12916059b267fc9d8e4369f64369858dd61e47a2360e47f0fe6bf5601ce16c29563b1e6c67662037544487fb6f970fd2_1280.png"
+  },
+  {
+    "name": "singe",
+    "url": "https://pixabay.com/get/gca49ce7dfd8a5dd4d91164e63d52843b0c3b1dcc4d339d0af6e1af6c80af20055153e7ff52e259031bc2aa1e5db1396b6837b42105eb40df67f9ad0e7b80288f_1280.png"
   }
 ]
